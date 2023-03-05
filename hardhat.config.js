@@ -6,6 +6,7 @@ module.exports = {
     localgeth: { url: "http://localgeth:8545/" },
     hardhat: {
     },
+    local: { url: "http://127.0.0.1:8545/"}
   },
   solidity: {
     compilers: [

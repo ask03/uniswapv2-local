@@ -51,7 +51,6 @@ async function main() {
 
   await factory.createPair(usdc.address, weth.address);
   let pairAddr = await factory.getPair(usdc.address, weth.address);
-
   console.log("pair created: WETH & USDC: ", pairAddr);
 }
 
