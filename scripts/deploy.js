@@ -17,7 +17,7 @@ async function main() {
   await factory.deployed();
   let str = "factory=" + factory.address.toString() + "\n";
   console.log("Factory: ", factory.address);
-  fsLibrary.appendFile('deployAddresses.txt', str, (error) => {
+  fsLibrary.writeFile('deployAddresses.txt', str, (error) => {
     // In case of a error throw err exception.
     if (error) throw err;
   })
@@ -51,9 +51,6 @@ async function main() {
 
   await factory.createPair(usdc.address, weth.address);
   let pairAddr = await factory.getPair(usdc.address, weth.address);
-
-  // Write data in 'newfile.txt' .
-
 
   console.log("pair created: WETH & USDC: ", pairAddr);
 }
