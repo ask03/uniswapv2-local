@@ -49,8 +49,13 @@ async function main() {
     if (error) throw err;
   })
 
-  await factory.createPair(usdc.address, weth.address);
+  await factory.createPair(weth.address, usdc.address);
   let pairAddr = await factory.getPair(usdc.address, weth.address);
+  str = "pair=" + pairAddr;
+  fsLibrary.appendFile('deployAddresses.txt', str, (error) => {
+    // In case of a error throw err exception.
+    if (error) throw err;
+  })
   console.log("pair created: WETH & USDC: ", pairAddr);
 }
 
