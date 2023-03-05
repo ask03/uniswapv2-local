@@ -23,6 +23,8 @@ async function main() {
   await weth.deposit({ value: hre.ethers.utils.parseEther("1000.0") });
 
   console.log("deployer WETH balance: ", hre.ethers.utils.formatEther(await weth.balanceOf(deployer.address)));
+  const aa = '0xc5e61c05aff01cbe4c799C48bB25A757B0ED61f2'; // stackup-erc-4337-examples$ yarn run simpleAccount address
+  console.log("AA WETH balance: ", hre.ethers.utils.formatEther(await weth.balanceOf(aa)));
   console.log("deployer USDC balance : ", hre.ethers.utils.formatUnits(await usdc.balanceOf(deployer.address), 6));
 
   let factoryAddr = await router.factory();
