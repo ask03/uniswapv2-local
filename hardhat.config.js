@@ -2,6 +2,12 @@ require("@nomicfoundation/hardhat-toolbox");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
+  defaultNetwork: "localgeth",
+  networks: {
+    localgeth: { url: "http://localgeth:8545/" },
+    hardhat: {
+    },
+  },
   solidity: {
     compilers: [
       {
@@ -41,6 +47,5 @@ module.exports = {
         },
       },
     ],
-
   },
-};
+}
