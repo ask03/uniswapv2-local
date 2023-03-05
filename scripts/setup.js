@@ -28,8 +28,8 @@ async function main() {
   let factoryAddr = await router.factory();
   console.log("factory addr: ", factoryAddr);
 
-  await usdc.approve(pairAddr, '100000000000000');
-  await weth.approve(pairAddr, hre.ethers.utils.parseEther("1000.0"));
+  await usdc.approve(routerAddr, '100000000000000');
+  await weth.approve(routerAddr, hre.ethers.utils.parseEther("1000.0"));
   await router.addLiquidity(weth.address, usdc.address, hre.ethers.utils.parseEther("1000.0"), hre.ethers.utils.parseUnits('15000000', 6), hre.ethers.utils.parseEther("1000.0"), hre.ethers.utils.parseUnits('15000000', 6),
   deployer.address, '1678451746' );
   
