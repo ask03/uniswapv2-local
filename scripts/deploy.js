@@ -26,6 +26,11 @@ async function main() {
   let router = await (await hre.ethers.getContractFactory("UniswapV2Router02")).deploy(factory.address, weth.address);
   await router.deployed();
   console.log("Router: ", router.address);
+
+  await factory.createPair(usdc.address, weth.address);
+  let pairAddr = await factory.getPair(usdc.address, weth.address);
+
+  console.log("pair created: WETH & USDC: ", pairAddr);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
